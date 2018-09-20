@@ -1,6 +1,5 @@
 from PIL import Image,ImageDraw
 import io,os
-import numpy
 from PyCRC.CRC16 import CRC16 as crc16
 
 EOP = b'/00'
