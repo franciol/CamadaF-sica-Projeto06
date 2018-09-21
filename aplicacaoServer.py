@@ -23,7 +23,7 @@ import io,os
 ####################################################
 
 #serialName = "/dev/ttyACM0"           # Ubuntu (variacao de)
-serialName = "/dev/cu.usbmodem1421" # Mac    (variacao de)
+serialName = "/dev/cu.usbmodem1411" # Mac    (variacao de)
 #serialName = "COM4"                  # Windows(variacao de)
 
 ####################################################
@@ -145,8 +145,8 @@ def sistemaRecebimento(com):
                 print("Mensagem tipo 5 – acknowledge da transmissão")
                 print("-------------------------")
                 arquivo += payload
-                print("Pacote ", pacoteAtual, " de ", esperandoPacotes, "recebido, contendo payload de ", len(payload), " bytes \n")
-                print("--------------------------------------------------")
+                print("Pacote ", pacoteAtual, " de ", esperandoPacotes, "recebido, contendo payload de ", len(payload), " bytes")
+                print("--------------------------------------------------\n\n")
                 InsperTor += 1
                 com.sendData(facadeEnlace.encapsulate(None, 5))
                 
@@ -188,8 +188,8 @@ def sistemaRecebimento(com):
                 break
 
             else:
-                print("--------------------------------------------------")
-                print("\n\nOuvindo pacote", InsperTor)
+                print("\n\n--------------------------------------------------")
+                print("Ouvindo pacote", InsperTor)
                 
 
 def main():
