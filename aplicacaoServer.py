@@ -55,7 +55,7 @@ def sistemaRecebimento(com):
         print("\n\n\n\n * OUVINDO MENSAGEM 1\n\n\n\n\n\n")
         bytesSeremLidos = com.rx.getBufferLen(False)
 
-        payload, lenPayload, messageType, ack, numeroPacote, totalPacote = com.getData(bytesSeremLidos)
+        payload, lenPayload, messageType, ack, numeroPacote, totalPacote, checkedcrc = com.getData(bytesSeremLidos)
         
         
         if messageType == 1:
@@ -77,7 +77,7 @@ def sistemaRecebimento(com):
             bytesSeremLidos = com.rx.getBufferLen(True)
             if bytesSeremLidos == 0:
                 print("ERRO TIPO II: NÃO RECEBEU MENSAGEM 3")
-            payload, lenPayload, messageType, ack, numeroPacote, totalPacote = com.getData(bytesSeremLidos)
+            payload, lenPayload, messageType, ack, numeroPacote, totalPacote, checkedcrc = com.getData(bytesSeremLidos)
 
             if messageType == 3:
                 print("\n * RECEBEU MENSAGEM 3 \n")
@@ -96,7 +96,7 @@ def sistemaRecebimento(com):
             #print("MANDOU MENSAGEM 3")
         
             bytesSeremLidos = com.rx.getBufferLen(False)
-            payload, lenPayload, messageType, ack, numeroPacote, totalPacote = com.getData(bytesSeremLidos)
+            payload, lenPayload, messageType, ack, numeroPacote, totalPacote, checkedcrc = com.getData(bytesSeremLidos)
 
             if numeroPacote == 1:
                 pacoteAtual = numeroPacote
@@ -141,7 +141,7 @@ def sistemaRecebimento(com):
 
                 pacoteAtual = numeroPacote
 
-            if ack == True:
+            if ack == True and checkedcrc:
                 print("Mensagem tipo 5 – acknowledge da transmissão")
                 print("-------------------------")
                 arquivo += payload

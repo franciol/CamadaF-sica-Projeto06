@@ -245,7 +245,7 @@ def readHeadNAll(receivedAll):
 
     #print('SanityCheck ', sanityCheck)
     crcChecked = crc_check(crc1, sanityCheck)
-    if len(sanityCheck) == txLen
+    if len(sanityCheck) == txLen:
 
         #print ("sanityCheck = okay")
         ack = True
