@@ -61,8 +61,8 @@ class enlace(object):
         """ Get n data over the enlace interface
         Return the byte array and the size of the buffer
         """
-        
-        data = self.rx.getNData(size)
-        resultData,txLen, messageType, ack,  numeroPacote, totalPacote = facadeEnlace.readHeadNAll(bytearray(data))
 
-        return(resultData, len(resultData), messageType, ack, numeroPacote, totalPacote)
+        data = self.rx.getNData(size)
+        resultData,txLen, messageType, ack,  numeroPacote, totalPacote,crc_checked = facadeEnlace.readHeadNAll(bytearray(data))
+
+        return(resultData, len(resultData), messageType, ack, numeroPacote, totalPacote,crc_checked)

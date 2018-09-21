@@ -10,6 +10,7 @@ crc_combinado = None
 def crc_creator(payload):
     #payload transformado em bits
     payloadBits = bin(int.from_bytes(payload, byteorder="big")).strip('0b')
+    #payloadBits = '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
     crcBitsPayload = crc16().calculate(payloadBits)
     return crcBitsPayload
 
@@ -131,6 +132,7 @@ def encapsulate(payload, messageType):
             all += payloadfinal
             all += EOP
             listOfPackages.insert(a,all)
+            print('\n',all)
             a+=1
 
         return listOfPackages
@@ -243,18 +245,18 @@ def readHeadNAll(receivedAll):
 
     #print('SanityCheck ', sanityCheck)
     crcChecked = crc_check(crc1, sanityCheck)
-    if len(sanityCheck) == txLen and crcChecked:
+    if len(sanityCheck) == txLen
 
         #print ("sanityCheck = okay")
         ack = True
 
-        return sanityCheck, txLen, messageType, ack, actualPackage, totalPackage
+        return sanityCheck, txLen, messageType, ack, actualPackage, totalPackage, crcChecked
 
     else:
 
         #print("Ue")
 
-        return None, None, messageType, ack ,None, None
+        return None, None, messageType, ack ,None, None,None
 
 
 

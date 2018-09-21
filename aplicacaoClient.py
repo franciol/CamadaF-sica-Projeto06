@@ -69,7 +69,7 @@ def sistemaEnvio(payload, com):
                     receivedCorrectly = False
                     while not receivedCorrectly:
                         com.sendData(payloadlist[payloadID])
-                        print("Enviando pacote ",payloadID+1," de ",len(payloadlist)," de tamanho ", len(payloadlist[payloadID])," bytes")
+                        print("\nEnviando pacote ",payloadID+1," de ",len(payloadlist)," de tamanho ", len(payloadlist[payloadID])," bytes")
                         bufferLen = com.rx.getBufferLen(temtimout)
                         messaType = -1
                         if bufferLen == 0:
@@ -152,7 +152,7 @@ import tkinter.filedialog as fdlg
 
 #serialName = "/dev/ttyACM0"           # Ubuntu (variacao de)
 #serialName = "/dev/cu.usbmodem1421" # Mac    (variacao de)
-serialName = "COM9"                  # Windows(variacao de)
+serialName = "COM12"                  # Windows(variacao de)
 
 
 
