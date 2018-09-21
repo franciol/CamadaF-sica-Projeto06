@@ -132,7 +132,6 @@ def encapsulate(payload, messageType):
             all += payloadfinal
             all += EOP
             listOfPackages.insert(a,all)
-            print('\n',all)
             a+=1
 
         return listOfPackages
