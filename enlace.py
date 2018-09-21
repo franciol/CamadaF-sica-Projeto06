@@ -65,4 +65,4 @@ class enlace(object):
         data = self.rx.getNData(size)
         resultData,txLen, messageType, ack,  numeroPacote, totalPacote,crc_checked = facadeEnlace.readHeadNAll(bytearray(data))
 
-        return(resultData, len(resultData), messageType, ack, numeroPacote, totalPacote,crc_checked)
+        return(resultData, len(resultData), messageType, ack, numeroPacote, totalPacote, crc_checked)

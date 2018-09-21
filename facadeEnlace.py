@@ -256,7 +256,7 @@ def readHeadNAll(receivedAll):
 
         #print("Ue")
 
-        return None, None, messageType, ack ,None, None,None
+        return None, None, messageType, ack ,None, None, None
 
 
 
