@@ -48,7 +48,7 @@ def sistemaEnvio(payload, com):
         if bufferLen == 0:
             print("Não entrou nada")
         else:
-            resultData, resultDataLen, messaType ,ack ,actualPackage ,totalPackage= com.getData(bufferLen)
+            resultData, resultDataLen, messaType ,ack ,actualPackage ,totalPackage, checkedcrc= com.getData(bufferLen)
 
         if messaType == 1:
             print("Erro")
@@ -75,7 +75,7 @@ def sistemaEnvio(payload, com):
                         if bufferLen == 0:
                             print("Não entrou nada")
                         else:
-                            resultData, resultDataLen, messaType ,ack ,actualPackage ,totalPackage= com.getData(bufferLen)
+                            resultData, resultDataLen, messaType ,ack ,actualPackage ,totalPackage,checkedcrc= com.getData(bufferLen)
                         if messaType == 5:
                             print("Servidor recebeu o pacote ",payloadID+1," corretamente")
                             payloadID+=1

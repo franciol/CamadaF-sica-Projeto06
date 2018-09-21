@@ -266,7 +266,6 @@ def teste():
     img.save(imgByteArr, format='JPEG')
     imgByteArr = imgByteArr.getvalue()
     testeSubject = encapsulate(imgByteArr,4)
-    sanityCheck, txLen, messageType, ack, actualPackage, totalPackage= readHeadNAll(testeSubject[0])
+    sanityCheck, txLen, messageType, ack, actualPackage, totalPackage,= readHeadNAll(testeSubject[0])
     print(ack)
     #print(txLen)
-teste()
